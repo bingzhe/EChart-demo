@@ -11,6 +11,7 @@
 
     <style>
         #main {
+            position: relative;
             top: 100px;
             left: 50%;
             transform: translate(-50%);
@@ -26,8 +27,87 @@
         var myChart = echarts.init($el);
 
         var option = {
-
-
+            title: {
+                text: "What's my credit score?",
+                subtext: "Puerto Rico, % decrease on year earlier",
+                textStyle: {
+                    fontSize: 24,
+                    color: '#494d4b',
+                    fontWeight: 'bold'
+                },
+                subtextStyle: {
+                    fontSize: 16,
+                    color: '#494d4b'
+                },
+                top: 20,
+                left: 40
+            },
+            tooltip: {},
+            backgroundColor: "rgb(215, 229, 236)",
+            color: ['#33758a', '#33b6e3'],
+            legend: {
+                data: ['Population', 'GDP'],
+                left: 40,
+                top: 100,
+                padding: 0,
+                textStyle: {
+                    fontSize: 16
+                }
+            },
+            grid: {
+                left: 40,
+                top: 140
+            },
+            xAxis: [{
+                data: ["2006", "07", "08", "09", "10", "11", "12", "13", "14", "15"],
+                axisLine: {
+                    onZero: false
+                },
+                axisTick: {
+                    inside: true,
+                    alignWithLabel: true,
+                    length: 6
+                }
+            }, {
+                axisLine: {
+                    lineStyle: {
+                        color: '#e88580',
+                        width: 2,
+                    }
+                }
+            }],
+            yAxis: {
+                inverse: true,
+                position: 'right',
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 2
+                    }
+                },
+                axisLine: {
+                    show: false
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#000',
+                        fontSize: 16
+                    },
+                },
+                axisTick: {
+                    show: false
+                }
+            },
+            series: [{
+                name: "Population",
+                type: "bar",
+                data: [0.5, 0.6, 0.6, 0.5, 0.4, 1.1, 1.2, 1.1, 1.6, 1.7]
+            }, {
+                name: "GDP",
+                type: "bar",
+                data: [0.8, 3.6, 1.7, 2.3, 2.6, 1.9, 2.8, 0.5, 0.8, 1.0]
+            }],
         };
 
         myChart.setOption(option);
