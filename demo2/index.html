@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="../echarts.js"></script>
+
+    <style>
+        #main {
+            top: 100px;
+            left: 50%;
+            transform: translate(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main" style="width:600px;height:400px;"></div>
+
+    <script>
+        var $el = document.querySelector("#main");
+        var myChart = echarts.init($el);
+
+        var option = {
+
+
+        };
+
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>
