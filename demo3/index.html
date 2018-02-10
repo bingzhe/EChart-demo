@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="../echarts.js"></script>
+    <script src="../jquery-3.3.1.min.js"></script>
+
+    <style>
+        #main {
+            position: relative;
+            top: 100px;
+            left: 50%;
+            transform: translate(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main" style="width:1000px;height:700px;"></div>
+
+    <script>
+        var $el = document.querySelector("#main");
+
+        $.getJSON('./map.json', function (Json) {
+            echarts.registerMap('world', Json);
+            var chart = echarts.init($el);
+            chart.setOption({
+                backgroundColor: "rgb(215, 229, 236)",
+                title: {
+                    text: 'Global Map',
+                },
+                series: [{
+                    type: 'map',
+                    map: 'world',
+                    roam: true,
+                }]
+            });
+        });
+
+
+        // myChart.setOption(option);
+    </script>
+</body>
+
+</html>
